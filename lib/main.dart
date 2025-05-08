@@ -13,6 +13,8 @@ class Product {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -31,10 +33,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Shopping App"),
+          title: const Text("Shopping App"),
           actions: [
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Center(
                 child: Text("Total: \$${cart.fold(0.0, (sum, item) => sum + item.price).toStringAsFixed(2)}"),
               ),
@@ -51,7 +53,7 @@ class _MyAppState extends State<MyApp> {
                 title: Text(product.name),
                 subtitle: Text("\$${product.price}"),
                 trailing: ElevatedButton(
-                  child: Text("Add"),
+                  child: const Text("Add"),
                   onPressed: () {
                     setState(() {
                       cart.add(product);
